@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(0, 220, 255, .30), transparent 30%),
+        radial-gradient(circle at 85% 25%, rgba(120, 70, 255, .35), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(0, 255, 190, .38), transparent 42%),
+        linear-gradient(180deg, #07152f 0%, #102b62 52%, #063f45 100%);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #8b7cff;
+}
+
+main {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 10px 35px;
+}
+
+.mini {
+    color: #9b91ff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 65px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #8b7cff;
+}
+
+.descripcion {
+    color: #aab4c8;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.producto {
+    position: relative;
+    height: 92px;
+    padding: 18px 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(15px);
+
+    transition: .3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    border-color: rgba(139,124,255,.6);
+    background: rgba(139,124,255,.12);
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.icono {
+    font-size: 32px;
+}
+
+.producto h2 {
+    font-size: 20px;
+    letter-spacing: .5px;
+}
+
+.flecha {
+    margin-left: auto;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(139,124,255,.16);
+    color: #c1bbff;
+
+    font-size: 22px;
+
+    transition: .3s ease;
+}
+
+.producto:hover .flecha {
+    background: #8b7cff;
+    color: white;
+    transform: translateX(5px);
+}
+
+footer {
+    text-align: center;
+    padding: 55px 20px 25px;
+    color: #71809a;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 22px 6%;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .producto {
+        height: 78px;
+        padding: 14px 18px;
+        gap: 14px;
+    }
+
+    .icono {
+        font-size: 27px;
+    }
+
+    .producto h2 {
+        font-size: 15px;
+    }
+
+    .flecha {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+}
+
+
+.producto-img {
+    width: 115px;
+    height: 58px;
+    object-fit: contain;
+    border-radius: 16px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .producto-img {
+        width: 85px;
+        height: 48px;
+        border-radius: 13px;
+    }
+}
+
+
+.producto-recetas {
+    padding: 0;
+    overflow: hidden;
+}
+
+.producto-recetas .producto-img {
+    width: 100%;
+    height: 100%;
+    min-height: 92px;
+    object-fit: contain;
+    display: block;
+}
+
+.producto-recetas .flecha {
+    position: absolute;
+    right: 22px;
+    bottom: 50%;
+    transform: translateY(50%);
+    background: rgba(0,0,0,.45);
+    color: white;
+}
+
+.producto-recetas:hover .flecha {
+    transform: translate(5px, 50%);
+}
+
+@media (max-width: 600px) {
+    .producto-recetas {
+        height: 78px;
+    }
+
+    .producto-recetas .producto-img {
+        min-height: 78px;
+    }
+}
+
+.producto-recetas {
+    background: #f3e4c8;
+    border: 1px solid rgba(255,255,255,.25);
+}
+
+
+.producto-recetas {
+    height: 150px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.recetas-titulo {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a3925;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.producto-recetas .producto-img {
+    width: 100%;
+    height: calc(100% - 42px);
+    min-height: 0;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .producto-recetas {
+        height: 135px;
+    }
+
+    .recetas-titulo {
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .producto-recetas .producto-img {
+        height: calc(100% - 38px);
+    }
+}
+
+
+.recetas-titulo {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.producto-recetas .producto-img {
+    transform: translateY(-4px);
+    height: calc(100% - 34px);
+}
+
+
+.producto-recetas {
+    height: 165px;
+}
+
+.recetas-titulo {
+    height: 42px;
+    flex-shrink: 0;
+}
+
+.producto-recetas .producto-img {
+    height: 123px;
+    width: 100%;
+    object-fit: contain;
+    transform: none;
+}
+
+@media (max-width: 600px) {
+    .producto-recetas {
+        height: 150px;
+    }
+
+    .recetas-titulo {
+        height: 40px;
+    }
+
+    .producto-recetas .producto-img {
+        height: 110px;
+    }
+}
+
