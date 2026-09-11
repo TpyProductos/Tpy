@@ -3,57 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPY</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+    <title>TPY Productos</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+            color: #171717;
+        }
+
+        .contenedor {
+            width: min(100% - 32px, 900px);
+            margin: 0 auto;
+            padding: 35px 0 60px;
+        }
+
+        .titulo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .buscador {
+            width: 100%;
+            max-width: 600px;
+            height: 52px;
+            margin: 28px auto 0;
+            display: block;
+
+            border: 1px solid rgba(0, 0, 0, .10);
+            border-radius: 16px;
+            background: rgba(240, 240, 240, .65);
+
+            padding: 0 18px;
+            outline: none;
+
+            font-size: 16px;
+        }
+
+        .busqueda {
+            width: 100%;
+            max-width: 600px;
+            margin: 28px auto 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .busqueda .buscador {
+            margin: 0;
+            flex: 1;
+        }
+
+        .boton-buscar {
+            width: 52px;
+            height: 52px;
+            flex-shrink: 0;
+            border: 0;
+            border-radius: 16px;
+            background: #1677ff;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+.busqueda.error .buscador {
+            border: 2px solid #e53935;
+            background: #fff1f1;
+        }
+
+        .busqueda.error .boton-buscar {
+            background: #e53935;
+        }
+
+        .productos {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .producto {
+            background: #eeeeee;
+            border-radius: 22px;
+            padding: 14px;
+
+            min-height: 390px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .foto {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 16px;
+            background: #d8d8d8;
+            overflow: hidden;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .nombre {
+            text-align: center;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.25;
+
+            margin: 18px 6px 14px;
+        }
+
+        .boton {
+            margin-top: auto;
+
+            width: 100%;
+            height: 46px;
+
+            border: 0;
+            border-radius: 12px;
+
+            background: #1677ff;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .contenedor {
+                width: calc(100% - 24px);
+                padding-top: 28px;
+            }
+
+            .titulo {
+                font-size: 28px;
+            }
+
+            .productos {
+                gap: 14px;
+                margin-top: 45px;
+            }
+
+            .producto {
+                padding: 10px;
+                min-height: 360px;
+                border-radius: 18px;
+            }
+
+            .foto {
+                border-radius: 13px;
+            }
+
+            .nombre {
+                font-size: 14px;
+                margin: 14px 3px 10px;
+            }
+
+            .boton {
+                height: 42px;
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">TPY<span>.</span></div>
-</header>
+    <div class="contenedor">
 
-<main>
+        <h1 class="titulo">TPY Productos</h1>
 
-    <section class="hero">
-        <p class="mini">PRODUCTOS DIGITALES</p>
+        <div class="busqueda">
+            <input
+                class="buscador"
+                id="buscador"
+                type="search"
+                placeholder="Buscar productos..."
+            >
+            <button class="boton-buscar" onclick="buscarProducto()">🔍</button>
+        </div>
 
-        <h1>
-            Elegí lo que<br>
-            <span>estás buscando.</span>
-        </h1>
-    </section>
+        <section class="productos">
 
-    <section class="productos">
+            <article class="producto">
+                <div class="foto"><img src="img/Recetario.png" alt="Producto"></div>
 
-        <a href="https://go.hotmart.com/Y107501255H" class="producto producto-recetas" target="_blank" rel="noopener noreferrer">
-            <div class="recetas-titulo">+200 recetas para tu bebé</div>
-            <img class="producto-img" src="img/recetas-bebes.png" alt="Recetas para bebés">
-            <div class="flecha">→</div>
-        </a>
-        
-        <a href="https://go.hotmart.com/E107566284J" class="producto producto-recetas" target="_blank" rel="noopener noreferrer">
-            <div class="recetas-titulo" style="transform:translateY(11px);">+200 recetas saludables<br>para diabéticos</div>
-            <div class="flecha">→</div>
-        </a>
+                <div class="nombre">
+                    +200 recetas para tu bebé
+                </div>
 
-        <a href="https://go.hotmart.com/P107566430V?ap=402b" class="producto producto-recetas"  target="_blank" rel="noopener noreferrer">
-            <div class="recetas-titulo">Full Repostería Desde Cero</div>
+                <a
+                    class="boton"
+                    href="https://go.hotmart.com/Y107501255H"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver producto
+                </a>
+            </article>
 
-            <div style="display:flex; width:100%; height:123px; gap:8px; padding:4px 12px 8px; transform:translateY(-18px);">
-                <img src="img/reposteria1.png" alt="Full Repostería Desde Cero" style="width:50%; height:100%; object-fit:contain; transform:translateX(-6px); transform:translateX(6px);">
-                <img src="img/reposteria2.png" alt="Full Repostería Desde Cero" style="width:50%; height:100%; object-fit:contain;">
-            </div>
+            <article class="producto">
+                <div class="foto"><img src="img/reposteriaport.jpg" alt="Producto"></div>
 
-            <div class="flecha">→</div>
-        </a>
+                <div class="nombre">
+                    Curso de Repostería Desde Cero
+                </div>
 
-    </section>
+                <a
+                    class="boton"
+                    href="https://go.hotmart.com/P107566430V?ap=402b"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver producto
+                </a>
+            </article>
 
-</main>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2338738d1a3248ba973e455cd7b5bd71"}'></script><!-- End Cloudflare Web Analytics -->
+            <article class="producto">
+                <div class="foto"><img src="img/diabeticos.jpg" alt="Producto"></div>
+
+                <div class="nombre">
+                    +200 recetas saludables para diabéticos
+                </div>
+
+                <a
+                    class="boton"
+                    href="https://go.hotmart.com/E107566284J"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver producto
+                </a>
+            </article>
+
+            <article class="producto">
+                <div class="foto"><img src="img/bajarpeso.png" alt="Producto"></div>
+
+                <div class="nombre">
+                    120 recetas para bajar de peso
+                </div>
+
+                <a
+                    class="boton"
+                    href="https://go.hotmart.com/Q107551872M"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver producto
+                </a>
+            </article>
+        </section>
+
+    </div>
+
+
+<script>
+function quitarAcentos(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+function buscarProducto() {
+    const buscador = document.getElementById("buscador");
+    const contenedor = document.querySelector(".busqueda");
+
+    const textoOriginal = buscador.value.trim();
+
+    const texto = quitarAcentos(
+        textoOriginal.toLowerCase()
+    );
+
+    const productos = document.querySelectorAll(".producto");
+
+    contenedor.classList.remove("error");
+
+    if (!texto) return;
+
+    for (const producto of productos) {
+        const nombre = quitarAcentos(
+            producto.querySelector(".nombre").textContent.toLowerCase()
+        );
+
+        if (nombre.includes(texto)) {
+            producto.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+            return;
+        }
+    }
+
+    contenedor.classList.add("error");
+    buscador.value = "✕ No se encontró este producto";
+    buscador.classList.add("mensaje-error");
+    buscador.blur();
+}
+
+const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("focus", function() {
+    if (this.classList.contains("mensaje-error")) {
+        this.value = "";
+        this.classList.remove("mensaje-error");
+        document.querySelector(".busqueda").classList.remove("error");
+    }
+});
+
+buscador.addEventListener("input", function() {
+    if (this.value !== "✕ No se encontró este producto") {
+        this.classList.remove("mensaje-error");
+        document.querySelector(".busqueda").classList.remove("error");
+    }
+});
+
+</script>
+
 </body>
 </html>
