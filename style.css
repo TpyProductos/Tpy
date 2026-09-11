@@ -333,3 +333,12 @@ footer {
 .producto-reposteria .recetas-titulo {
     color: #4a3925;
 }
+
+.producto.producto-reposteria {
+    background: #f3e4c8 !important;
+    border: 1px solid rgba(255,255,255,.25) !important;
+}
+
+.producto.producto-reposteria .recetas-titulo {
+    color: #4a3925 !important;
+}
