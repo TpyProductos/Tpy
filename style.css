@@ -326,20 +326,23 @@ footer {
 }
 
 
-/* Estilo moderno de tarjetas */
+/* Estilo Glassmorphism */
 .producto {
-    border-radius: 24px;
-    border: 1px solid rgba(255,255,255,.22);
-    box-shadow: 0 8px 25px rgba(0,0,0,.18);
-    transition: transform .25s ease, box-shadow .25s ease;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(255,255,255,.10);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.16);
+    transition: .25s ease;
 }
 
 .producto:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    box-shadow: 0 14px 35px rgba(0,0,0,.22);
 }
 
 .producto-recetas {
-    border-radius: 24px;
+    border-radius: 28px;
 }
 
