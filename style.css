@@ -325,3 +325,11 @@ footer {
     }
 }
 
+
+.producto-reposteria {
+    background: #f3e4c8;
+}
+
+.producto-reposteria .recetas-titulo {
+    color: #4a3925;
+}
